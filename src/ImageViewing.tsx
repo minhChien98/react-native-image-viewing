@@ -149,16 +149,16 @@ function ImageViewing({
           //@ts-ignore
           keyExtractor={(imageSrc) => imageSrc.uri || `${imageSrc}`}
         />
-        {typeof FooterComponent !== "undefined" && (
-          <Animated.View
-            style={[styles.footer, { transform: footerTransform }]}
-          >
-            {React.createElement(FooterComponent, {
-              imageIndex: currentImageIndex,
-            })}
-          </Animated.View>
-        )}
       </View>
+      {typeof FooterComponent !== "undefined" && (
+        <Animated.View
+          style={[styles.footer, { transform: footerTransform }]}
+        >
+          {React.createElement(FooterComponent, {
+            imageIndex: currentImageIndex,
+          })}
+        </Animated.View>
+      )}
     </Modal>
   );
 }
@@ -176,9 +176,13 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: "absolute",
-    width: "100%",
-    zIndex: 1,
+    width: 50,
+    alignItems: 'center',
+    // backgroundColor: 'red',
+    height: 250,
+    zIndex: 99999999,
     bottom: 0,
+    right: 0,
   },
 });
 
